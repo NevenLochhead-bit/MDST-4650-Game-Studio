@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "seed": 1234,
+  "arena": {
+    "aspect": 1.6
+  },
+  "deployed": [
+    "shy-one",
+    "follower"
+  ]
+}

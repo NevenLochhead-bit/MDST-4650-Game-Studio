@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "id": "shy-one",
+  "core": {
+    "givens": {
+      "name": "Shy One",
+      "facts": [
+        "Was the first cursor made.",
+        "Prefers some distance.",
+        "Returns to its corner."
+      ],
+      "body": {
+        "shape": "arrow",
+        "size": 1
+      },
+      "numbers": {
+        "speed": 3,
+        "perception": 80,
+        "reach": 12
+      },
+      "meters": [
+        {
+          "name": "nerve",
+          "start": 20,
+          "min": 0,
+          "max": 100,
+          "drift": 0.2
+        }
+      ]
+    },
+    "protocols": {
+      "can": [
+        "move_toward",
+        "move_away",
+        "follow",
+        "wander",
+        "turn",
+        "wait",
+        "hover",
+        "press",
+        "say",
+        "adjust_meter",
+        "repeat"
+      ],
+      "cannot": [
+        "press"
+      ],
+      "rules": [
+        {
+          "when": [
+            {
+              "sense": "sees",
+              "target": "nearest_cursor",
+              "within": 50
+            }
+          ],
+          "do": [
+            {
+              "act": "move_away",
+              "target": "nearest_cursor"
+            }
+          ]
+        },
+        {
+          "when": [
+            {
+              "sense": "touches",
+              "target": "edge"
+            }
+          ],
+          "do": [
+            {
+              "act": "move_toward",
+              "target": "spawn"
+            }
+          ]
+        },
+        {
+          "when": [
+            {
+              "sense": "crowded",
+              "n": 3
+            }
+          ],
+          "do": [
+            {
+              "act": "say",
+              "line": "Oh. Sorry."
+            }
+          ]
+        }
+      ],
+      "would": {
+        "do": [
+          {
+            "act": "wander",
+            "amount": 0.3
+          }
+        ]
+      }
+    },
+    "transfer": {
+      "spawn": {
+        "x": 0.85,
+        "y": 0.6
+      },
+      "nameVisible": true,
+      "voice": [
+        {
+          "on": "meets_cursor",
+          "line": "Oh. Sorry."
+        }
+      ],
+      "onMeet": {
+        "do": [
+          {
+            "act": "move_away",
+            "target": "met"
+          }
+        ]
+      }
+    }
+  },
+  "binding": {
+    "substrate": "web-arena",
+    "units": "arena-normalised",
+    "colour": "#76559b",
+    "drive": {
+      "mapping": "direct"
+    }
+  }
+}

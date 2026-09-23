@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "buttons": [
+    {
+      "id": "b1",
+      "label": "Continue",
+      "x": 0.85,
+      "y": 0.35,
+      "w": 0.18,
+      "h": 0.065,
+      "onPress": {
+        "effect": "say",
+        "line": "No."
+      },
+      "cooldown": 60
+    },
+    {
+      "id": "b2",
+      "label": "↗",
+      "x": 1.3,
+      "y": 0.7,
+      "w": 0.12,
+      "h": 0.065,
+      "onPress": {
+        "effect": "nudge",
+        "amount": 12,
+        "within": 35
+      },
+      "cooldown": 20
+    }
+  ]
+}
